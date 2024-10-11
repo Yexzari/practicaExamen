@@ -6,8 +6,14 @@ import 'package:learning_b/navigation/profile.dart';
 import 'package:learning_b/navigation/reservations.dart';
 import 'package:learning_b/navigation/top.dart';
 import 'package:learning_b/widgets/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -20,13 +26,13 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/':(context)=> const SplashScreen(),
-        '/menu':(context)=> const navigation(),
-        '/home':(context)=>const home(),
-        '/profile':(context) => const profile(),
-        '/reservations':(context) => const reservations(),
-        '/top':(context)=>const top(),
-        '/login':(context)=>const Login(),
+        '/': (context) => const SplashScreen(),
+        '/menu': (context) => const navigation(),
+        '/home': (context) => const home(),
+        '/profile': (context) => const profile(),
+        '/reservations': (context) => const reservations(),
+        '/top': (context) => const top(),
+        '/login': (context) => const Login(),
       },
     );
   }
