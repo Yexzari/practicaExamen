@@ -1,53 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class PasswordInput extends StatelessWidget {
-  final TextEditingController controller;
-  final bool isObscure;
-  final VoidCallback toggleVisibility;
-  final String hintText; 
-  final String labelText; 
-
-  const PasswordInput({
-    required this.controller,
-    required this.isObscure,
-    required this.toggleVisibility,
-    required this.hintText,
-    required this.labelText,
-    super.key,
-  });
+class CreateAccount extends StatefulWidget {
+  const CreateAccount({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: isObscure,
-      decoration: InputDecoration(
-        hintText: hintText,
-        label: Text(labelText), // Usamos la propiedad para la etiqueta
-        suffixIcon: IconButton(
-          onPressed: toggleVisibility,
-          icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
-        ),
-      ),
-    );
-  }
+  State<CreateAccount> createState() => _CreateAccountState();
 }
 
-class Login extends StatefulWidget {
-  const Login({super.key});
-
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
+class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  bool _isObscure = true;
+  final TextEditingController _passwordContorller = TextEditingController();
+  bool _isObcure = true;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   String? validateEmail(String? value) {
+    // Expresión regular para validar un correo electrónico
     final RegExp emailRegExp = RegExp(
       r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
     );
@@ -57,31 +25,29 @@ class _LoginState extends State<Login> {
     } else if (!emailRegExp.hasMatch(value)) {
       return 'Por favor, ingrese un correo electrónico válido';
     }
-    return null; 
-  }
-
-  void togglePasswordVisibility() {
-    setState(() {
-      _isObscure = !_isObscure;
-    });
+    return null; // Si es válido, no devuelve ningún error
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Iniciar sesión"),
+        title: const Text("Crear cuenta"),
         backgroundColor: Colors.blue,
         centerTitle: true,
+        //iconTheme:IcontTheme(color:Colors.white)
         titleTextStyle: TextStyle(fontSize: 16, color: Colors.orange[900]),
       ),
-      body: Center(
+      body: 
+      SingleChildScrollView(
+        child:Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment:CrossAxisAlignment.center,
               children: [
                 Image.asset(
                   "assets/logo.png",
@@ -91,34 +57,50 @@ class _LoginState extends State<Login> {
                 TextFormField(
                   controller: _emailController,
                   decoration: const InputDecoration(
-                    hintText: "Correo electrónico",
-                    label: Text("Correo electrónico"),
+                    hintText: "Correo electronico",
+                    label: Text("Correo electronico"),
                   ),
                   keyboardType: TextInputType.emailAddress,
                   validator: validateEmail,
                 ),
-                const SizedBox(height: 16),
-                PasswordInput(
-                  controller: _passwordController,
-                  isObscure: _isObscure,
-                  toggleVisibility: togglePasswordVisibility,
-                  hintText: "Contraseña", 
-                  labelText: "Contraseña",
+                const SizedBox(
+                  height: 16,
                 ),
-                const SizedBox(height: 32),
+                TextFormField(
+                  controller: _passwordContorller,
+                  obscureText: _isObcure,
+                  decoration: InputDecoration(
+                      hintText: "Contraseña",
+                      label: const Text("Contraseña"),
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              _isObcure = !_isObcure;
+                            });
+                          },
+                          icon: Icon(_isObcure
+                              ? Icons.visibility
+                              : Icons.visibility_off))),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
                 SizedBox(
                   height: 48,
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
+                        //print("Email ${_emailController.text}");
+                        //print("Password ${_passwordContorller.text}");
+
                         try {
                           final credential = await FirebaseAuth.instance
                               .signInWithEmailAndPassword(
                                   email: _emailController.text,
-                                  password: _passwordController.text);
-                          print("Credencial: ${credential}");
-                          Navigator.pushReplacementNamed(context, '/menu');
+                                  password: _passwordContorller.text);
+                                print("Credencial: ${credential}");
+                                Navigator.pushReplacementNamed(context, '/menu');
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'user-not-found') {
                             print('No user found for that email.');
@@ -129,34 +111,26 @@ class _LoginState extends State<Login> {
                       }
                     },
                     style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.orange[900],
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                    ),
+                        backgroundColor: Colors.blue,
+                        foregroundColor: Colors.orange[900],
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16))),
                     child: const Text(
-                      "Iniciar sesión",
+                      "iniciar sesion",
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
-                InkWell(
-                  onTap: () => Navigator.pushNamed(context, '/register'),
-                  child: Text(
-                    "Registrarase",
-                    style: TextStyle(
-                      color: Colors.blue,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
+                //SizedBox(height:16),
+                
+
               ],
             ),
           ),
         ),
       ),
+      )
+      
     );
   }
 }
