@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating/flutter_rating.dart';
 import 'package:learning_b/modules/restaurants/entity/restaurant.dart';
+import "package:learning_b/modules/restaurants/widgets/detail.dart";
+
 class CuscomListRestaurants extends StatelessWidget {
   const CuscomListRestaurants({
     super.key,
@@ -12,17 +14,21 @@ class CuscomListRestaurants extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return 
+    
+    InkWell(
+      onTap: () {
+        Navigator.push<void>(context,
+        MaterialPageRoute<void>(builder: (BuildContext context) =>   Detail(  restaurant:restaurant   )
+   ));
+      },
+      child:
+       Row(
       children: [
         Image.network(
-          restaurant.images.isNotEmpty
-              ? restaurant.images[0]
-              : "https://placehold.co/60x60",
+         restaurant.images[0],
           width: 60,
-          height: 60,
-          errorBuilder: (context, error, stackTrace) {
-            return const Icon(Icons.error);
-          },
+          height: 60
         ),
         const SizedBox(width: 8),
         Expanded(
@@ -46,6 +52,14 @@ class CuscomListRestaurants extends StatelessWidget {
           size: 18,
         ),
       ],
+    )         
     );
+
+
+    
+
+
+
+
   }
 }
