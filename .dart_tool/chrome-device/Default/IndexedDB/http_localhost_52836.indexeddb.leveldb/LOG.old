@@ -1,0 +1,27 @@
+2024/10/28-18:49:14.001 bd0 Reusing MANIFEST C:\Users\CC11-2~1.CC1\AppData\Local\Temp\flutter_tools.a4072f24\flutter_tools_chrome_device.14790eeb\Default\IndexedDB\http_localhost_52836.indexeddb.leveldb/MANIFEST-000001
+2024/10/28-18:49:14.002 bd0 Recovering log #7
+2024/10/28-18:49:14.002 bd0 Reusing old log C:\Users\CC11-2~1.CC1\AppData\Local\Temp\flutter_tools.a4072f24\flutter_tools_chrome_device.14790eeb\Default\IndexedDB\http_localhost_52836.indexeddb.leveldb/000007.log 
+2024/10/28-18:49:14.006 39b8 Level-0 table #12: started
+2024/10/28-18:49:14.007 39b8 Level-0 table #12: 3260 bytes OK
+2024/10/28-18:49:14.008 39b8 Delete type=0 #7
+2024/10/28-18:49:14.008 39b8 Manual compaction at level-0 from '\x00\x05\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/10/28-18:49:52.424 34cc Compacting 1@1 + 1@2 files
+2024/10/28-18:49:52.426 34cc Generated table #13@1: 41 keys, 2930 bytes
+2024/10/28-18:49:52.426 34cc Compacted 1@1 + 1@2 files => 2930 bytes
+2024/10/28-18:49:52.427 34cc compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/10/28-18:49:52.427 34cc Delete type=2 #9
+2024/10/28-18:49:52.427 34cc Delete type=2 #12
+2024/10/28-18:50:40.697 39b8 Level-0 table #15: started
+2024/10/28-18:50:40.698 39b8 Level-0 table #15: 3277 bytes OK
+2024/10/28-18:50:40.698 39b8 Delete type=0 #11
+2024/10/28-18:50:40.699 bd0 Manual compaction at level-0 from '\x00\x06\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x07\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/10/28-18:50:45.018 39b8 Level-0 table #17: started
+2024/10/28-18:50:45.019 39b8 Level-0 table #17: 3280 bytes OK
+2024/10/28-18:50:45.020 39b8 Delete type=0 #14
+2024/10/28-18:50:45.020 34cc Manual compaction at level-0 from '\x00\x07\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at '\x00\x07\x00\x00\x05' @ 291 : 1
+2024/10/28-18:50:45.020 34cc Compacting 1@0 + 1@1 files
+2024/10/28-18:50:45.021 34cc Generated table #18@0: 37 keys, 2760 bytes
+2024/10/28-18:50:45.021 34cc Compacted 1@0 + 1@1 files => 2760 bytes
+2024/10/28-18:50:45.021 34cc compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/10/28-18:50:45.021 34cc Delete type=2 #17
+2024/10/28-18:50:45.021 34cc Manual compaction at level-0 from '\x00\x07\x00\x00\x05' @ 291 : 1 .. '\x00\x08\x00\x00\x00' @ 0 : 0; will stop at (end)

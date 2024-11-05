@@ -3,6 +3,7 @@ import 'package:learning_b/navigation/home.dart';
 import 'package:learning_b/navigation/profile.dart';
 import 'package:learning_b/navigation/reservations.dart';
 import 'package:learning_b/navigation/top.dart';
+import 'package:learning_b/modules/map/map_sample.dart';
 
 class navigation extends StatefulWidget {
   const navigation({super.key});
@@ -17,7 +18,8 @@ class _navigationState extends State<navigation> {
     home(),
     top(),
     reservations(),
-    profile()
+    profile(),
+    MapSample(),
   ];
 
   void _onItemTapped(int index) {
@@ -46,6 +48,10 @@ class _navigationState extends State<navigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.map),
+            label: 'Mapaa',
           ),
         ],
         currentIndex: _selectedIndex,
