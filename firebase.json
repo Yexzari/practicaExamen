@@ -1,1 +1,26 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"restaurante-76df3","appId":"1:998201512406:android:a9a38fe83d5e8cc1fc9477","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"restaurante-76df3","configurations":{"android":"1:998201512406:android:a9a38fe83d5e8cc1fc9477","ios":"1:998201512406:ios:da6d7e10b92f6e68fc9477","macos":"1:998201512406:ios:da6d7e10b92f6e68fc9477","web":"1:998201512406:web:7f664726faf4ef52fc9477","windows":"1:998201512406:web:a6aca2c5466cf5d6fc9477"}}}}}}
+{
+    "flutter": {
+      "platforms": {
+        "android": {
+          "default": {
+            "projectId": "restauranteb-bb6a4",
+            "appId": "1:291734082643:android:e608291e31f1a7428be2a6", 
+            "fileOutput": "android/app/google-services.json"
+          }
+        },
+        "dart": {
+          "lib/firebase_options.dart": {
+            "projectId": "restauranteb-bb6a4", 
+            "configurations": {
+              "android": "1:291734082643:android:e608291e31f1a7428be2a6",
+              "ios": "1:291734082643:ios:da6d7e10b92f6e68fc9477", 
+              "macos": "1:291734082643:ios:da6d7e10b92f6e68fc9477", 
+              "web": "1:291734082643:web:7f664726faf4ef52fc9477", 
+              "windows": "1:291734082643:web:a6aca2c5466cf5d6fc9477" 
+            }
+          }
+        }
+      }
+    }
+  }
+  

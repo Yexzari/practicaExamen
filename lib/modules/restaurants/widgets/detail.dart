@@ -36,7 +36,7 @@ class Detail extends StatelessWidget {
                             )
                 ),
             StarRating(
-                rating: restaurant.rateing / restaurant.count,
+                rating: restaurant.rating / restaurant.count,
                 color: Colors.orange[200],
                 borderColor: Colors.grey,
                 starCount: 5,
